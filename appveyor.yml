@@ -1,0 +1,26 @@
+environment:
+  matrix:
+  #node.js
+  - nodejs_version: "6"
+
+# install scripts
+install:
+#install modules
+ - npm install
+
+
+ #post install test scripts
+
+ test_script:
+ #output some infos
+
+ - node --version
+ - npm --version
+
+ #test the app
+ - npm test
+
+
+ #don't actually build
+
+ build: off
