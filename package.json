@@ -7,10 +7,13 @@
     "open:src":"babel-node buildScripts/srcServer.js",
     "local-tunnel":"lt --port 3000",
     "lint:watch":"npm run eslint -- --watch",
-    "share":"npm-run-all --parallel open:src lint:watch test:watch",
+    "share":"npm-run-all --parallel open:src lint:watch test:watch start-mock-data-api",
     "eslint":"esw webpack.config.* src buildScripts --color",
     "test": "mocha --reporter progress buildScripts/testScript.js \"src/**/*.test.js\"",
-    "test:watch":"npm run test -- --watch"
+    "test:watch":"npm run test -- --watch",
+    "generate-mock-data":"babel-node src/generateMockData.js",
+    "prestart-mock-data-api":"npm run generate-mock-data",
+    "start-mock-data-api":"json-server --watch src/api/db.json --port 3800"
 
 
   },
